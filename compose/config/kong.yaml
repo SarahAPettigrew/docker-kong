@@ -1,3 +1,24 @@
 # a very minimal declarative config file
-_format_version: "2.1"
+# _format_version: "2.1"
+# _transform: true
+
+
+# config from https://docs.konghq.com/gateway/latest/production/deployment-topologies/db-less-and-declarative-config/#declarative-configuration-format
+_format_version: "3.0"
 _transform: true
+
+services:
+- name: sarahs-v-good-service
+  url: https://example.com
+  plugins:
+  - name: key-auth
+  routes:
+  - name: my-route
+    paths:
+    - /
+
+consumers:
+- username: sarah
+  keyauth_credentials:
+  - key: v-strong-pw
+
